@@ -1,0 +1,327 @@
+
+
+/* BASIC JUSTIFY WITH BOX */
+
+.boxCenterCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.boxCenterRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.linkToMain {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* ESTE ES EL EFECTO DEL MENU ACCOUNT DE LA VERSION DESKTOP */
+
+
+.fadeInTopMenuItem {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInTop 0.2s ease-out forwards;
+    animation-delay: calc(var(--fade-order) * 0.1s);
+}
+
+@keyframes fadeInTop { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+/* Usando variables CSS para animar en orden */ 
+.fadeInTopMenuItem:nth-child(1) { 
+    --fade-order: 1; 
+} 
+
+.fadeInTopMenuItem:nth-child(2) { 
+    --fade-order: 2; 
+} 
+
+.fadeInTopMenuItem:nth-child(3) { 
+    --fade-order: 3
+}
+
+.fadeInTopMenuItem:nth-child(4) { 
+    --fade-order: 4
+}
+
+
+/* 
+  EL SIGUIENTE BLOQUE DE CSS AGREGA LA ANIMACION DEL BOTON
+  CON LA FINALIDAD DE CUANDO LE DEN CLICK PUEDA CAMBIAR SU 
+  ESTADO DE MANERA DINAMICA Y FLUIDA.
+
+*/
+
+.headerToggleMenu {
+    position: relative;
+    cursor: pointer;
+}
+
+.bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    border-radius: calc(4px / 2);
+    background: white;
+    color: inherit;
+    opacity: 1;
+    transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+}
+
+.bar--top {
+bottom: 80%;
+    transition-property: bottom,transform;
+    transition-delay: calc(0s + 0.35s),0s;
+}
+
+.bar--middle {
+    transition-property: opacity;
+    transition-delay: calc(0s + 0.35s);
+}
+
+.bar--bottom {
+    top: 80%;
+    transition-property: top,transform;
+    transition-delay: calc(0s + 0.35s),0s;
+}
+
+.headerMenuHamburgerOpen.bar--top {
+    bottom: calc(38%);
+    transform: rotate(135deg);
+    transition-delay: 0s,calc(0s + 0.35s);
+}
+
+.headerMenuHamburgerOpen.bar--middle {
+    opacity: 0;
+    transition-duration: 0s;
+    transition-delay: calc(0s + 0.35s);
+}
+
+.headerMenuHamburgerOpen.bar--bottom {
+    top: calc(50%);
+    transform: rotate(225deg);
+    transition-delay: 0s,calc(0s + 0.35s);
+}
+  
+
+/*
+  EL SIGUIENTE BLOQUE DE CODIGO CSS PERMITE MOSTRAR
+  UN CONTENIDO OCULTO PARA CUANDO EL MENU DE HAMBURGER SE DESPLIEGUE
+  CON ESTO SE GENERA UN FONDO BLANCO QUE SERA LA BASE PARA EL CONTENIDO
+  DE LOS NAVLINK
+*/
+
+.headerMobileNav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+  
+.headerMobileNavOpen {
+    opacity: 1;
+    visibility: visible;
+    animation: slideInTop 600ms forwards;
+}
+  
+.headerMobileNavContainer {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.headeMobileNavMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 160px;
+    overflow: hidden;
+}
+
+@keyframes slideInTop {
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+  
+@keyframes fadeInTopMobile { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+.MobileMenuItem {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInTopMobile 0.3s ease-out forwards;
+    animation-delay: calc(var(--fade-order-menu-mobile) * 0.05s);
+}
+
+.MobileMenuItem:nth-child(1) { --fade-order-menu-mobile: 1; } 
+.MobileMenuItem:nth-child(2) { --fade-order-menu-mobile: 2; }
+.MobileMenuItem:nth-child(3) { --fade-order-menu-mobile: 3; } 
+.MobileMenuItem:nth-child(4) { --fade-order-menu-mobile: 4; } 
+.MobileMenuItem:nth-child(5) { --fade-order-menu-mobile: 5; } 
+.MobileMenuItem:nth-child(6) { --fade-order-menu-mobile: 6; }
+.MobileMenuItem:nth-child(7) { --fade-order-menu-mobile: 7; } 
+.MobileMenuItem:nth-child(8) { --fade-order-menu-mobile: 8; } 
+.MobileMenuItem:nth-child(9) { --fade-order-menu-mobile: 9; } 
+.MobileMenuItem:nth-child(10) { --fade-order-menu-mobile: 10; } 
+.MobileMenuItem:nth-child(11) { --fade-order-menu-mobile: 11; } 
+.MobileMenuItem:nth-child(12) { --fade-order-menu-mobile: 12; } 
+.MobileMenuItem:nth-child(13) { --fade-order-menu-mobile: 13; } 
+.MobileMenuItem:nth-child(14) { --fade-order-menu-mobile: 14; } 
+
+
+/*
+    Estilos para el swipeableEdge o el boton de cuenta en el
+    navbar mobile version.
+*/
+
+.SwipeableEdgeDrawerBox {
+    overflow: hidden;
+    animation: fadeInBottomMobile .3s ease-in-out;
+}
+  
+.SwipeableEdgeDrawerPuller {
+    width: 10vw;
+    height: 6px;
+    background-color: #757575;
+    border-radius: 3px;
+    position: absolute;
+    top: 15px;
+}
+
+@keyframes fadeInBottomMobile {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+/* ANIMACION PARA EL SWIPE DEL ACCOUNT BUTTON EN LA MOBILE VERSION */
+
+@keyframes fadeOut { 
+    to { opacity: 0; } 
+}
+
+@keyframes swipe { 
+    0%, 50% { 
+        transform: translateX(30px);
+    } 
+    25%, 75% { 
+        transform: translateX(-30px);
+    } 
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.swipeTutorial {
+    padding-top: 10px;
+    animation: swipe 4s ease-in-out, fadeOut 2s ease 3s forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ANIMATION FROM BACKGROUND AUTH PAGE */
+
+.authMain {
+    -webkit-animation: gradientAuthPage 10s linear infinite;
+    -moz-animation: gradientAuthPage 10s linear infinite;
+    animation: gradientAuthPage 10s linear infinite;
+}
+
+
+@-webkit-keyframes gradientAuthPage {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+}
+
+@-moz-keyframes gradientAuthPage {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+}
+
+@keyframes gradientAuthPage {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+}
+
+
+/* CONFIGURACION DEL CARD PARA EL LOGIN */
+ /* authCard */
+ .authCardContent {
+    transform-style: preserve-3d;
+    transition: transform 600ms;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+  }
+
+  /* datos sobre el login  authBackCardContent */
+.authFrontCard {
+    transform: rotateY(180deg);
+}
+
+.authCardFlip {
+    transform: rotateY(180deg);
+}
