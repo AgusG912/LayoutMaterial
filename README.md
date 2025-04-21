@@ -11,7 +11,11 @@ Este proyecto es una interfaz construida con Material UI pensada para simplifica
 
 Aunque el proyecto está desarrollado en JavaScript, su estructura es sólida. Y Está diseñado para ser fácilmente adaptable y reutilizable, por lo que es completamente libre de usar y modificar según tus necesidades.
 
-#### Tecnologías utilizadas:
+## 🏭 Ejemplo de prueba
+
+Antes de continuar no olvides [Mirarlo en Netlify](https://layoutmaterialui-29f0b8.netlify.app/).
+
+## 📦 Tecnologías utilizadas:
 - `Vite`
 - `React`
 - `JavaScript`
